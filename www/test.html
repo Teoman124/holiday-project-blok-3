@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .worden {
+            text-align: center;
+            /* Standaard grootte */
+            font-size: 16px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content label {
+            display: block;
+            padding: 12px;
+            cursor: pointer;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="worden">
+        <h1>eeuohfskdhfksdhfsdfsdf</h1>
+        <p>ejshjsdfjkhdsjfksdjkfkjsdfjkhjkdhfksdhfkjshdkjfsdjkfh</p>
+    </div>
+
+    <div class="dropdown">
+        <button onclick="toggleDropdown()" class="dropdown-btn">
+            Text opties ▼
+        </button>
+        <div id="myDropdown" class="dropdown-content">
+            <label><input type="checkbox" id="klein"> Klein</label>
+            <label><input type="checkbox" id="normaal" checked> Normaal</label>
+            <label><input type="checkbox" id="groot"> Groot</label>
+        </div>
+    </div>
+
+    <script>
+        // Standaard: Normaal is aangevinkt en tekst is 16px
+        document.querySelector('.worden').style.fontSize = "16px";
+
+        // Toon/verberg dropdown
+        function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Sluit dropdown als er buiten wordt geklikt
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropdown-btn')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (const dropdown of dropdowns) {
+                    if (dropdown.classList.contains('show')) {
+                        dropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        // Luister naar checkbox-wijzigingen
+        const checkboxes = document.querySelectorAll('#myDropdown input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    // Zorg dat alleen één optie geselecteerd is
+                    checkboxes.forEach(cb => {
+                        if (cb !== this) cb.checked = false;
+                    });
+
+                    // Pas tekstgrootte aan
+                    const wordenDiv = document.querySelector('.worden');
+                    switch (this.id) {
+                        case 'klein':
+                            wordenDiv.style.fontSize = "14px";
+                            break;
+                        case 'normaal':
+                            wordenDiv.style.fontSize = "16px";
+                            break;
+                        case 'groot':
+                            wordenDiv.style.fontSize = "18px";
+                            break;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

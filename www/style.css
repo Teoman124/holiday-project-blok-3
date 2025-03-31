@@ -1,0 +1,145 @@
+/* algemeen */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*          */
+/* headers  */
+/*          */
+header {
+    width: 100%;
+    height: 90px;
+    background-color: #f8fdff;
+}
+
+.header_container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 20px;
+}
+
+.logo img {
+    width: 40px;
+    height: auto;
+    display: block;
+}
+
+.search_div {
+    position: relative;
+    width: 100%;
+}
+
+.searchcontainer {
+    flex: 2;
+    min-width: 300px;
+}
+
+/*           */
+/* dropdowns */
+/*           */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 170px;
+    text-align: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 100%;
+    padding: 10px;
+}
+
+.dropdown-content label {
+    display: block;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.dropdown_group {
+    display: flex;
+    gap: 15px;
+    /* Ruimte tussen dropdowns */
+    align-items: center;
+}
+
+.show {
+    width: fit-content;
+    max-width: 200px;
+    display: block;
+}
+
+
+/*      */
+/* main */
+/*      */
+
+.main_container {
+    padding: 20px;
+    background-color: #f8fdff;
+}
+
+.vakantie_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 items per rij */
+    gap: 25px;
+    padding: 10px 50px;
+    max-width: 1400px;
+    /* Vergelijkbaar met de game-container */
+    margin: 0 auto;
+    /* Centreer de container */
+}
+
+
+.vakantie_items {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* schaduw */
+    break-inside: avoid;
+}
+
+.vakantie_items a {
+    text-decoration: none;
+    color: inherit;
+    /* Behoud de tekstkleur van de parent */
+}
+
+.vakantie_items_fotos {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+
+/* het info_page.php */
+
+/* javascript diggen */
+.worden {
+    text-align: center;
+    font-size: 16px;
+
+}
